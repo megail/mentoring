@@ -1,0 +1,7 @@
+*.iml
+/book-ms/.idea
+/book-ms/target
+/book-ms/book-core/target
+/book-ms/book-web/target
+/project-version-plugin/.idea
+/project-version-plugin/target
