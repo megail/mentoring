@@ -48,7 +48,7 @@ public class VersionPlugin extends AbstractMojo {
             output.write(version);
             output.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new MojoExecutionException(e.getMessage());
         }
         getLog().info("Created version file.");
     }
