@@ -12,17 +12,28 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
+ * Creates version properties file in the specified directory.
+ *
  * @author Mikhail_Chen-Len-Son@epam.com
  */
 @Mojo(name = "version-file", defaultPhase = LifecyclePhase.COMPILE)
 public class VersionPlugin extends AbstractMojo {
 
+    /**
+     * Version to be written in file
+     */
     @Parameter
     private String version;
 
+    /**
+     * Name of the file
+     */
     @Parameter
     private String fileName;
 
+    /**
+     * Directory where to save properties file.
+     */
     @Parameter
     private String resourceRoot;
 
@@ -39,6 +50,6 @@ public class VersionPlugin extends AbstractMojo {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        getLog().info( "Copied version file." );
+        getLog().info("Created version file.");
     }
 }
