@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Book">
+
+    <resultMap id="bookResultMap" type="Book">
+        <id property="id" column="id" />
+        <result property="title" column="title"/>
+        <collection property="authors" ofType="Author">
+            <id property="id" column="author_id"/>
+            <result property="name" column="author_name"/>
+        </collection>
+    </resultMap>
+
+    <sql id="selectBook">
+        SELECT b.id, b.title, a.id AS author_id, a.name AS author_name
+        FROM book b
+        LEFT JOIN book_author ab ON b.id = ab.book_id
+        LEFT JOIN author a ON ab.author_id = a.id
+    </sql>
+
+    <select id="getAll" resultMap="bookResultMap">
+        <include refid="selectBook"/>
+    </select>
+
+    <select id="getById" parameterType="long" resultMap="bookResultMap">
+        <include refid="selectBook"/>
+        WHERE b.id = #{id}
+    </select>
+
+</mapper>

@@ -1,4 +1,4 @@
-package pi.book.model;
+package com.epam.mentoring.book.model;
 
 import java.util.List;
 

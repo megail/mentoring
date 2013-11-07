@@ -1,4 +1,4 @@
-package pi.book.model;
+package com.epam.mentoring.book.model;
 
 /**
  * @author Mikhail_Chen-Len-Son@epam.com
