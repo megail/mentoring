@@ -4,6 +4,17 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
-  <display-name>Book Management System Web Application</display-name>
+    <display-name>Book Management System Web Application</display-name>
+
+    <servlet>
+        <servlet-name>TestBookServlet</servlet-name>
+        <servlet-class>com.epam.mentoring.book.web.TestBookServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TestBookServlet</servlet-name>
+        <url-pattern>/books</url-pattern>
+    </servlet-mapping>
 
 </web-app>
